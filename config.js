@@ -32,7 +32,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blogs published URL.
-        url: 'http://localhost:8081',
+        url: 'http://dev-env-6cg3cztgw8.elasticbeanstalk.com',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
