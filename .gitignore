@@ -70,3 +70,8 @@ config.js
 
 # Coverage reports
 coverage.html
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
