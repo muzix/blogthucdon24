@@ -50,11 +50,14 @@ config = {
         // ```
 
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost-dev.db')
-            },
-            debug: false
+                host     : 'aajgtbze0ltvt9.cljkx7d1qnff.ap-southeast-1.rds.amazonaws.com',
+                user     : 'muzix',
+                password : 'thucdon24',
+                database : 'blogthucdon24db',
+                charset  : 'utf8'
+            }
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
