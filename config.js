@@ -10,7 +10,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://blog.thucdon24.com',
+        url: process.env.BLOG_URL_PROD,
         mail: {},
         database: {
             client: 'sqlite3',
@@ -32,7 +32,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blogs published URL.
-        url: 'http://blog.thucdon24.com',
+        url: process.env.BLOG_URL_DEV,
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -52,12 +52,18 @@ config = {
         database: {
             client: 'mysql',
             connection: {
-                host     : 'blogthucdon24instance.cljkx7d1qnff.ap-southeast-1.rds.amazonaws.com',
-                user     : 'muzix',
-                password : 'thucdon24',
-                database : 'blogthucdon24db',
+                host     : process.env.DB_HOST,
+                user     : process.env.DB_USER,
+                password : process.env.DB_PWD,
+                database : process.env.DB_NAME,
                 charset  : 'utf8'
             }
+        },
+        aws: {
+            accessKeyId: process.env.AWS_ACCESS_ID,
+            secretAccessKey: process.env.AWS_ACCESS_SECRET,
+            bucket: process.env.AWS_BUCKET_NAME,
+            region: process.env.AWS_BUCKET_REGION
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
