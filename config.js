@@ -32,7 +32,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blogs published URL.
-        url: 'http://dev-env-6cg3cztgw8.elasticbeanstalk.com',
+        url: 'http://blog.thucdon24.com',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -50,11 +50,14 @@ config = {
         // ```
 
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost-dev.db')
-            },
-            debug: false
+                host     : 'blogthucdon24instance.cljkx7d1qnff.ap-southeast-1.rds.amazonaws.com',
+                user     : 'muzix',
+                password : 'thucdon24',
+                database : 'blogthucdon24db',
+                charset  : 'utf8'
+            }
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
