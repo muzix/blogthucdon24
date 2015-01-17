@@ -13,13 +13,21 @@ config = {
         url: 'http://blog.thucdon24.com',
         mail: {},
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
+                host     : process.env.DB_HOST,
+                user     : process.env.DB_USER,
+                password : process.env.DB_PWD,
+                database : process.env.DB_NAME,
+                charset  : 'utf8'
+            }
         },
-
+        aws: {
+            accessKeyId: process.env.AWS_ACCESS_ID,
+            secretAccessKey: process.env.AWS_ACCESS_SECRET,
+            bucket: process.env.AWS_BUCKET_NAME,
+            region: process.env.AWS_BUCKET_REGION
+        },
         server: {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
@@ -50,20 +58,16 @@ config = {
         // ```
 
         database: {
-            client: 'mysql',
+            client: 'sqlite3',
             connection: {
-                host     : process.env.DB_HOST,
-                user     : process.env.DB_USER,
-                password : process.env.DB_PWD,
-                database : process.env.DB_NAME,
-                charset  : 'utf8'
+                filename: path.join(__dirname, '/content/data/ghost-dev.db')
             }
         },
         aws: {
-            accessKeyId: process.env.AWS_ACCESS_ID,
-            secretAccessKey: process.env.AWS_ACCESS_SECRET,
-            bucket: process.env.AWS_BUCKET_NAME,
-            region: process.env.AWS_BUCKET_REGION
+            accessKeyId: 'aws_access_id',
+            secretAccessKey: 'aws_access_secret',
+            bucket: 's3_bucket_name',
+            region: 's3_bucket_region'
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
