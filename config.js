@@ -10,7 +10,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://blog.thucdon24.com',
+        url: 'http://tech.thucdon24.com',
         mail: {},
         database: {
             client: 'mysql',
@@ -40,7 +40,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blogs published URL.
-        url: 'http://blog.thucdon24.com',
+        url: 'http://tech.thucdon24.com',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
