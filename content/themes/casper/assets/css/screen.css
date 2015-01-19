@@ -1511,12 +1511,12 @@ body:not(.post-template) .post-title {
         border-bottom: #e0e4e7 1px solid;
     }
 
-    .blog-logo {
+    /*.blog-logo {
         padding: 10px 10px;
-    }
+    }*/
 
     .blog-logo img {
-        height: 26px;
+        max-height: 80px;
     }
 
     .back-button,
