@@ -764,11 +764,11 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-excerpt p {
+/*.post-excerpt p {
     margin: 0;
     font-size: 0.9em;
     line-height: 1.7em;
-}
+}*/
 
 .read-more {
     text-decoration: none;
@@ -1329,7 +1329,7 @@ body:not(.post-template) .post-title {
     background-color: #303538;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center center;
 }
 
 .site-footer a {
