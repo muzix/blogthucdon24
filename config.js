@@ -33,6 +33,9 @@ config = {
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '8081'
+        },
+        paths: {
+            subdir: 'http://cdn.thucdon24.com'
         }
     },
 
