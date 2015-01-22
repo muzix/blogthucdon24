@@ -26,7 +26,8 @@ config = {
             accessKeyId: process.env.AWS_ACCESS_ID,
             secretAccessKey: process.env.AWS_ACCESS_SECRET,
             bucket: process.env.AWS_BUCKET_NAME,
-            region: process.env.AWS_BUCKET_REGION
+            region: process.env.AWS_BUCKET_REGION,
+            assetHost: 'http://s3.thucdon24.com/'
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
