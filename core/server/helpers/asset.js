@@ -12,7 +12,8 @@ asset = function (context, options) {
     var output = '',
         isAdmin = options && options.hash && options.hash.ghost;
 
-    output += config.paths.subdir + '/';
+    //output += config.paths.subdir + '/';
+    output += 'http://cdn.thucdon24.com/';
 
     if (!context.match(/^favicon\.ico$/) && !context.match(/^shared/) && !context.match(/^asset/)) {
         if (isAdmin) {
