@@ -11,7 +11,7 @@ def remove_duplicate_config():
     os.system("rm -rf /etc/nginx/conf.d/00_elastic_beanstalk_proxy.conf")
 
 def restart_nginx():
-    os.system("service nginx restart")
+    os.system("sudo service nginx restart")
 
 def main():
     print '--- Remove old nginx config ---'
