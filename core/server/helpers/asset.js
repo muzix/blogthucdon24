@@ -10,10 +10,11 @@ var hbs             = require('express-hbs'),
 
 asset = function (context, options) {
     var output = '',
-        isAdmin = options && options.hash && options.hash.ghost;
+        isAdmin = options && options.hash && options.hash.ghost,
+        baseHost = config.cdn.host ? config.cdn.host : config.paths.subdir;
 
     //output += config.paths.subdir + '/';
-    output += 'http://cdn.thucdon24.com/';
+    output += baseHost + '/';
 
     if (!context.match(/^favicon\.ico$/) && !context.match(/^shared/) && !context.match(/^asset/)) {
         if (isAdmin) {

@@ -29,6 +29,9 @@ config = {
             region: process.env.AWS_BUCKET_REGION,
             assetHost: 'http://s3.thucdon24.com/'
         },
+        cdn: {
+            host: "http://cdn.thucdon24.com"
+        },
         server: {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',

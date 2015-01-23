@@ -10,11 +10,13 @@ var _               = require('lodash'),
     ghost_script_tags;
 
 ghost_script_tags = function () {
-    var scriptList = utils.isProduction ? utils.scriptFiles.production : utils.scriptFiles.development;
+    var scriptList = utils.isProduction ? utils.scriptFiles.production : utils.scriptFiles.development,
+        baseHost = config.cdn.host ? config.cdn.host : config.paths.subdir;
 
     scriptList = _.map(scriptList, function (fileName) {
         return utils.scriptTemplate({
-            source: config.paths.subdir + '/ghost/scripts/' + fileName,
+            //source: config.paths.subdir + '/ghost/scripts/' + fileName,
+            source: baseHost + '/ghost/scripts/' + fileName,
             version: config.assetHash
         });
     });

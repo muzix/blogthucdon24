@@ -17,10 +17,12 @@ var hbs             = require('express-hbs'),
 ghost_foot = function (options) {
     /*jshint unused:false*/
     var jquery = utils.isProduction ? 'jquery.min.js' : 'jquery.js',
-        foot = [];
+        foot = [],
+        baseHost = config.cdn.host ? config.cdn.host : config.paths.subdir;
 
     foot.push(utils.scriptTemplate({
-        source: config.paths.subdir + '/public/' + jquery,
+        //source: config.paths.subdir + '/public/' + jquery,
+        source: baseHost + '/public/' + jquery,
         version: config.assetHash
     }));
 
