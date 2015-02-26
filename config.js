@@ -71,10 +71,14 @@ config = {
             }
         },
         aws: {
-            accessKeyId: 'aws_access_id',
-            secretAccessKey: 'aws_access_secret',
-            bucket: 's3_bucket_name',
-            region: 's3_bucket_region'
+            accessKeyId: process.env.AWS_ACCESS_ID,
+            secretAccessKey: process.env.AWS_ACCESS_SECRET,
+            bucket: process.env.AWS_BUCKET_NAME,
+            region: process.env.AWS_BUCKET_REGION,
+            assetHost: 'http://s3.thucdon24.com/'
+        },
+        cdn: {
+            host: "http://tech.thucdon24.com"
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
