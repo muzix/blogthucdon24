@@ -1,20 +1,14 @@
 var errors  = require('../errors'),
-    storage = {},
-    config;
-
-function getConfigModule() {
-    if (!config) {
-        config = require('../config');
-    }
-    return config;
-}
-
+    config  = require('../config'),
+    storage = {};
 
 function getStorage(storageChoice) {
-    // TODO: this is where the check for storage apps should go
-    // Local file system is the default.  Fow now that is all we support.
-    // storageChoice = 'local-file-store';
-    storageChoice = 'ghost-s3-storage';
+    var storagePath,
+        storageConfig;
+
+    storageChoice = config.storage.active;
+    storagePath = config.paths.storage;
+    storageConfig = config.storage[storageChoice];
 
     if (storage[storageChoice]) {
         return storage[storageChoice];
@@ -22,17 +16,13 @@ function getStorage(storageChoice) {
 
     try {
         // TODO: determine if storage has all the necessary methods.
-        //storage[storageChoice] = require('./' + storageChoice);
-        storage[storageChoice] = require(storageChoice)({
-            errors: errors,
-            config: getConfigModule().aws
-        });
+        storage[storageChoice] = require(storagePath);
     } catch (e) {
         errors.logError(e);
     }
 
     // Instantiate and cache the storage module instance.
-    storage[storageChoice] = new storage[storageChoice]();
+    storage[storageChoice] = new storage[storageChoice](storageConfig);
 
     return storage[storageChoice];
 }

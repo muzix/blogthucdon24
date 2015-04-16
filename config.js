@@ -30,7 +30,7 @@ config = {
             assetHost: 'http://s3.thucdon24.com/'
         },
         cdn: {
-            host: "http://cdn.thucdon24.com"
+            host: "http://localhost:8081"
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
@@ -39,7 +39,7 @@ config = {
             port: '8081'
         },
         paths: {
-            subdir: 'http://cdn.thucdon24.com'
+            subdir: 'http://localhost:8081'
         }
     },
 
@@ -78,7 +78,7 @@ config = {
             assetHost: 'http://s3.thucdon24.com/'
         },
         cdn: {
-            host: "http://tech.thucdon24.com"
+            host: "http://localhost:8081"
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
