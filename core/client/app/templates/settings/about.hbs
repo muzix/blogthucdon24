@@ -11,7 +11,10 @@
             </span>
             <span class="version blue">v{{model.version}}</span>
         </h1>
-        <p>A free, open, simple publishing platform</p>
+        {{gh-notifications location="settings-about-upgrade" notify="updateNotificationChange"}}
+        {{#unless updateNotificationCount}}
+            <p>A free, open, simple publishing platform</p>
+        {{/unless}}
 
         <div class="about-environment-help clearfix">
             <div class="about-environment">
@@ -28,7 +31,7 @@
             </div>
             <div class="about-help">
                 <a href="http://support.ghost.org" class="btn">User Documentation</a>
-                <a href="https://ghost.org/forum/" class="btn">Get Help With Ghost</a>
+                <a href="https://ghost.org/slack/" class="btn">Get Help With Ghost</a>
             </div>
         </div>
     </section>

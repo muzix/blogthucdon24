@@ -376,7 +376,7 @@ describe('Config', function () {
         });
 
         it('creates the config file if one does not exist', function (done) {
-                // trick bootstrap into thinking that the config file doesn't exist yet
+            // trick bootstrap into thinking that the config file doesn't exist yet
             var existsStub = sandbox.stub(fs, 'stat', function (file, cb) { return cb(true); }),
                 // ensure that the file creation is a stub, the tests shouldn't really create a file
                 writeFileStub = sandbox.stub(config, 'writeFile').returns(Promise.resolve()),
@@ -403,13 +403,13 @@ describe('Config', function () {
             }).then(function (localConfig) {
                 localConfig.url.should.equal('https://testurl.com');
 
-                 // Next test
+                // Next test
                 overrideConfig({url: 'http://testurl.com/blog/'});
                 return config.load();
             }).then(function (localConfig) {
                 localConfig.url.should.equal('http://testurl.com/blog/');
 
-                 // Next test
+                // Next test
                 overrideConfig({url: 'http://testurl.com/ghostly/'});
                 return config.load();
             }).then(function (localConfig) {
@@ -688,10 +688,7 @@ describe('Config', function () {
 
             logStub.calledOnce.should.be.true;
 
-            logStub.calledWithMatch(null, 'updateCheck').should.be.false;
-            logStub.calledWithMatch('', 'updateCheck').should.be.true;
-            logStub.calledWithMatch(sinon.match.string, 'updateCheck').should.be.true;
-            logStub.calledWithMatch(sinon.match.number, 'updateCheck').should.be.false;
+            logStub.calledWithMatch('updateCheck').should.be.true;
 
             // Future tests: This is important here!
             resetEnvironment();
@@ -706,10 +703,7 @@ describe('Config', function () {
 
             logStub.calledOnce.should.be.true;
 
-            logStub.calledWithMatch(null, 'updateCheck').should.be.false;
-            logStub.calledWithMatch('', 'updateCheck').should.be.true;
-            logStub.calledWithMatch(sinon.match.string, 'updateCheck').should.be.true;
-            logStub.calledWithMatch(sinon.match.number, 'updateCheck').should.be.false;
+            logStub.calledWithMatch('updateCheck').should.be.true;
 
             // Future tests: This is important here!
             resetEnvironment();
@@ -726,10 +720,7 @@ describe('Config', function () {
 
             logStub.calledOnce.should.be.true;
 
-            logStub.calledWithMatch(null, 'mail.fromaddress').should.be.false;
-            logStub.calledWithMatch('', 'mail.fromaddress').should.be.true;
-            logStub.calledWithMatch(sinon.match.string, 'mail.fromaddress').should.be.true;
-            logStub.calledWithMatch(sinon.match.number, 'mail.fromaddress').should.be.false;
+            logStub.calledWithMatch('mail.fromaddress').should.be.true;
 
             // Future tests: This is important here!
             resetEnvironment();
@@ -745,10 +736,7 @@ describe('Config', function () {
             config.checkDeprecated();
 
             logStub.calledOnce.should.be.true;
-            logStub.calledWithMatch(null, 'mail.fromaddress').should.be.false;
-            logStub.calledWithMatch('', 'mail.fromaddress').should.be.true;
-            logStub.calledWithMatch(sinon.match.string, 'mail.fromaddress').should.be.true;
-            logStub.calledWithMatch(sinon.match.number, 'mail.fromaddress').should.be.false;
+            logStub.calledWithMatch('mail.fromaddress').should.be.true;
 
             // Future tests: This is important here!
             resetEnvironment();

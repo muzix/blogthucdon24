@@ -11,6 +11,13 @@ var isNumeric = function (num) {
             return false;
         } else if (isNumeric(val)) {
             return +val;
+        } else if (val.indexOf('{') === 0) {
+            try {
+                return JSON.parse(val);
+            } catch (e) {
+                /*jshint unused:false */
+                return val;
+            }
         } else {
             return val;
         }
